@@ -29,6 +29,16 @@ var bookApi = {
       data: JSON.stringify(credentials),
       dataType: 'json'
     }, callback);
+  },
+
+  showBooks: function showBooks(callback) {
+    this.ajax({
+      method: 'GET',
+      url: this.url + '/books',
+      contentType: 'application/json',
+      //data: JSON.stringify(credentials),
+      dataType: 'json'
+    }, callback);
   }
 
 //need comma in between

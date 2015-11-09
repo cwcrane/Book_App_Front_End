@@ -1,5 +1,8 @@
 'use strict';
 
+//$(document).ready(function(){
+
+
   var currentUser = {
     loggedIn: false,
     skipLogIn: false,
@@ -19,6 +22,7 @@
     $('#start-hide1').fadeIn(700).show();
     $('#start-hide2').fadeIn(700).show();
     $('#start-hide3').fadeIn(700).show();
+    loadBooks();
   };
 
   var skipLoginView = function(){
@@ -26,6 +30,7 @@
     $('#start-hide1').fadeIn(700).show();
     $('#start-hide2').fadeIn(700).show();
     $('#start-hide3').fadeIn(700).show();
+    loadBooks();
   };
 
   var uxState = function (){
@@ -35,3 +40,5 @@
       return skipLoginView();
     }else beforeLoginView();
   };
+
+//});
