@@ -23,22 +23,22 @@ $(document).ready(
 
     var callback = function callback(error, data) {
       if (error) {
-        console.error(error);
+        console.log('status: ' + error.status + ', error: ' +error.error)
+        //console.error(error);
         //$('#result').val('status: ' + error.status + ', error: ' +error.error);
-        return;
-      }
-      console.log(data);
+        //return;
+      } else {console.log(data)};
       //$('#result').val(JSON.stringify(data, null, 4));
     };
 
     $('#registerForm').on('submit', function(e) {
       var credentials = wrap('credentials', form2object(this));
-      books_api.register(credentials, callback)
+      bookApi.register(credentials, callback);
       // tttapi.register(credentials, callback);
-      // e.preventDefault();
+      e.preventDefault();
     });
 
-
+})
 
 );
 
