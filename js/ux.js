@@ -10,21 +10,22 @@
     $('#start-hide1').hide();
     $('#start-hide2').hide();
     $('#start-hide3').hide();
-    $('#login-overlay').show();
+    $('#login-overlay').hide();
+    $('#login-overlay').fadeIn(100).show();
   };
 
   var afterLoginView = function(){
-    $('#start-hide1').show();
-    $('#start-hide2').show();
-    $('#start-hide3').show();
     $('#login-overlay').hide();
+    $('#start-hide1').fadeIn(700).show();
+    $('#start-hide2').fadeIn(700).show();
+    $('#start-hide3').fadeIn(700).show();
   };
 
   var skipLoginView = function(){
-    $('#start-hide1').show();
-    $('#start-hide2').show();
-    $('#start-hide3').show();
     $('#login-overlay').hide();
+    $('#start-hide1').fadeIn(700).show();
+    $('#start-hide2').fadeIn(700).show();
+    $('#start-hide3').fadeIn(700).show();
   };
 
   var uxState = function (){
