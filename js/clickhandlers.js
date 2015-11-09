@@ -3,7 +3,7 @@
 $(document).ready(
 
   $(function() {
-    //returns data entered in form, as an object
+
     var form2object = function(form) {
       var data = {};
       $(form).find("input").each(function(index, element) {
@@ -24,21 +24,23 @@ $(document).ready(
     var callback = function callback(error, data) {
       if (error) {
         console.log('status: ' + error.status + ', error: ' +error.error)
-        //console.error(error);
-        //$('#result').val('status: ' + error.status + ', error: ' +error.error);
-        //return;
       } else {console.log(data)};
-      //$('#result').val(JSON.stringify(data, null, 4));
     };
 
     $('#registerForm').on('submit', function(e) {
       var credentials = wrap('credentials', form2object(this));
       bookApi.register(credentials, callback);
-      // tttapi.register(credentials, callback);
       e.preventDefault();
     });
 
-})
 
+    $('#loginForm').on('submit', function(e){
+      var credentials = wrap('credentials', form2object(this));
+      bookApi.login(credentials, callback);
+      e.preventDefault();
+    });
+
+
+  })
 );
 
