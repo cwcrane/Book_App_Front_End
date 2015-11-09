@@ -7,7 +7,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
+    <!--<link rel="icon" href="../../favicon.ico">-->
 
     <title>Book Swap</title>
 
@@ -15,14 +15,96 @@
     <link href="styles/bootstrap.min.css" rel="stylesheet">
     <link href="styles/stylesheet.css" rel="stylesheet">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/ux.js" type="application/javascript" charset="utf-8" async defer></script>
+    <script src="js/api.js" type="application/javascript" charset="utf-8" async defer></script>
+    <script src="js/clickhandlers.js" type="application/javascript" charset="utf-8" async defer></script>
 
   </head>
 
   <body>
 
+  <!--REGISTER or LOGIN-->
+    <div id="login-overlay" class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title" id="myModalLabel">Login to <b>Book Swap</b></h4> or <a id="skipLogIn" href="">skip this step</a>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+
+                    <!--LEFT COLUMN-->
+                    <div class="col-xs-6">
+                        <div class="well">
+
+                            <form id="loginForm">
+
+                                <div class="form-group">
+                                    <label for="email" class="control-label">email</label>
+                                    <input type="text" name="email" class="form-control" placeholder="email">
+                                    </div>
+
+                                <div class="form-group">
+                                    <label for="password" class="control-label">Password</label>
+                                    <input type="password" name="password" class="form-control" placeholder="password">
+                                </div>
+
+                                <!--ERROR MESSAGE
+                                <div id="loginErrorMsg" class="alert alert-error hide">Wrong username or password</div>
+                                -->
+
+                                <!--CHECKBOX
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="remember" id="remember"> Remember login
+                                    </label>
+                                    <p class="help-block">(if this is a private computer)</p>
+                                </div>
+                                -->
+                                <div id="LoginMessage"></div>
+                                <button type="submit" class="btn btn-success btn-block">Login</button>
+
+                            </form>
+                        </div>
+                    </div>
+
+                    <!--RIGHT COLUMN-->
+                    <div class="col-xs-6">
+                        <div class="well">
+                            <form id="registerForm">
+
+                                <div class="form-group">
+                                    <label for="email" class="control-label">email</label>
+                                    <input type="text" name="email" class="form-control" placeholder="email">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="password" class="control-label">Password</label>
+                                    <input type="password" name="password" class="form-control" placeholder="password">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="password" class="control-label">Password Confirm</label>
+                                    <input type="password" name="password_confirmation" class="form-control" placeholder="password">
+                                </div>
+                                <div id="RegisterMessage"></div>
+                                <button type="submit" class="btn btn-info btn-block">Register & Login</button>
+
+                              </form>
+                        </div>
+                    </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
 
     <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container-fluid">
+      <div id="start-hide1" class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
@@ -43,7 +125,7 @@
     </nav>
 
 
-    <div class="container-fluid">
+    <div id="start-hide2" class="container-fluid">
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
@@ -62,7 +144,7 @@
         </div>
 
 
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <div id="start-hide3" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <h1>Book Swap</h1>
           <div class="input-group-lg" id="adv-search">
             <input type="text" class="form-control" placeholder="Search for Books" />
@@ -201,6 +283,6 @@
       </div>
     </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
   </body>
 </html>
