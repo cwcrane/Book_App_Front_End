@@ -1,8 +1,5 @@
 'use strict';
 
-//$(document).ready(function(){
-
-
   var currentUser = {
     loggedIn: false,
     skipLogIn: false,
@@ -41,4 +38,4 @@
     }else beforeLoginView();
   };
 
-//});
+

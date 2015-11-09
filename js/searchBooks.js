@@ -1,8 +1,5 @@
 'use strict';
 
-//$(document).ready(function() {
-
-
 //LOAD BOOKS
 
   var bookTemplate = Handlebars.compile($('#book-index').html());
@@ -20,5 +17,5 @@
     bookApi.showBooks(bookCallback);
   };
 
-//});
+
 
