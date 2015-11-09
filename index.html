@@ -19,7 +19,6 @@
     <script src="js/api.js" type="application/javascript" charset="utf-8" async defer></script>
     <script src="js/ux.js" type="application/javascript" charset="utf-8" async defer></script>
     <script src="js/login.js" type="application/javascript" charset="utf-8" async defer></script>
-    <script src="js/searchBooks.js" type="application/javascript" charset="utf-8" async defer></script>
 
   </head>
 
@@ -102,7 +101,7 @@
 
     </div>
 
-
+<!--After Registration & Login, this will show-->
 
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div id="start-hide1" class="container-fluid">
@@ -127,6 +126,7 @@
 
 
     <div id="start-hide2" class="container-fluid">
+      <!--
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
@@ -135,14 +135,16 @@
             <li><a href="#">Analytics</a></li>
             <li><a href="#">Export</a></li>
           </ul>
-          <!--<ul class="nav nav-sidebar">
+          <!--
+          <ul class="nav nav-sidebar">
             <li><a href="">Nav item</a></li>
             <li><a href="">Nav item again</a></li>
             <li><a href="">One more nav</a></li>
             <li><a href="">Another nav item</a></li>
             <li><a href="">More navigation</a></li>
-          </ul>-->
-        </div>
+          </ul>
+          -->
+    </div>
 
 
         <div id="start-hide3" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
@@ -160,18 +162,23 @@
                   <th></th>
                   <th>Title</th>
                   <th>Author</th>
-                  <th>Location</th>
+                  <th>isbn</th>
                   <th>Rating</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody id='books'>
+                <script id="book-index" type="text/x-handlebars-template">
+                  {{#each books}}
                 <tr>
                   <td><button type="button" class="btn btn-success">Success</button></td>
-                  <td>Lorem</td>
-                  <td>ipsum</td>
-                  <td>dolor</td>
-                  <td>sit</td>
+                  <td>{{title}}</td>
+                  <td>author</td>
+                  <td>{{isbn}}</td>
+                  <td>Rating</td>
                 </tr>
+                {{/each}}
+                </script>
+
                 <tr>
                   <td><button type="button" class="btn btn-warning">Warning</button></td>
                   <td>amet</td>
@@ -284,6 +291,8 @@
       </div>
     </div>
 
+    <script type="text/javascript" src="assets/handlebars-v3.0.3.js"></script>
+    <script src="js/searchBooks.js" type="application/javascript" charset="utf-8" async defer></script>
 
   </body>
 </html>
