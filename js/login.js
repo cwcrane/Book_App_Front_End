@@ -21,6 +21,7 @@ $(document).ready(function() {
     return wrapper;
   };
 
+
 //REGISTER CLICKHANDLER
 
   var registerCallback = function(error, data) {
@@ -49,7 +50,7 @@ $(document).ready(function() {
     } else if (data){
       currentUser.user = data.user;
       currentUser.loggedIn = true;
-      //console.log(currentUser);
+      console.log(currentUser);
       uxState();
     };
   };
@@ -59,6 +60,9 @@ $(document).ready(function() {
     bookApi.login(credentials, loginCallback);
     e.preventDefault();
   });
+
+
+//SKIP LOGIN
 
   $("#skipLogIn").on('click', function(e){
     currentUser.skipLogIn = true;

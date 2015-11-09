@@ -1,6 +1,6 @@
 'use strict';
 
-var currentUser = {
+  var currentUser = {
     loggedIn: false,
     skipLogIn: false,
     user: {},
