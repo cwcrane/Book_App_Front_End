@@ -28,8 +28,8 @@ $(document).ready(function() {
       $("#RegisterMessage").html("An error occured, please try again.")
       //console.log('status: ' + error.status + ', error: ' +error.error)
     } else if (data) {
-      $("#RegisterMessage").html("Registration successful, please log in.")
-      console.log(data);
+      $("#RegisterMessage").html("Registration successful, please log in.");
+      //console.log(data);
     };
   };
 
@@ -45,18 +45,18 @@ $(document).ready(function() {
   var loginCallback = function(error, data) {
     if (error) {
       $("#LoginMessage").html("Error occured, please try again.")
-      console.log('status: ' + error.status + ', error: ' +error.error)
+      //console.log('status: ' + error.status + ', error: ' +error.error)
     } else if (data){
-      console.log(data);
+      currentUser.user = data.user;
       currentUser.loggedIn = true;
-      currentUser.user = data.user
+      //console.log(currentUser);
       uxState();
     };
   };
 
   $('#loginForm').on('submit', function(e){
     var credentials = wrap('credentials', form2object(this));
-    bookApi.login(credentials, callback);
+    bookApi.login(credentials, loginCallback);
     e.preventDefault();
   });
 
