@@ -1,8 +1,8 @@
 'use strict';
 
-$(document).ready(function() {
+uxState();
 
-  uxState();
+$(document).ready(function() {
 
   var form2object = function(form) {
     var data = {};
