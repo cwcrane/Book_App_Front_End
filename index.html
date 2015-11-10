@@ -168,7 +168,11 @@
                 <script id="book-index" type="text/x-handlebars-template">
                   {{#each books}}
                 <tr>
-                  <td><button type="button" class="btn btn-success">Success</button></td>
+                  <td>{{#ifOnLoan status value="Available"}}<button type="button" class="btn btn-success">Available</button>
+                  {{else}}<button type="button" class="btn btn-warning">On Loan</button>
+                  {{/ifOnLoan}}
+
+                  </td>
                   <td>{{title}}</td>
                   <td>author</td>
                   <td>{{isbn}}</td>
