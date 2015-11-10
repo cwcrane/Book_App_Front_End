@@ -108,9 +108,9 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a>Search</a></li>
-            <li><a id="My-Books">My Books</a></li>
-            <li><a href="">Profile</a></li>
+            <li><a id="navbar-Search">Search</a></li>
+            <li><a id="navbar-My-Books">My Books</a></li>
+            <li><a id="navbar-Profile">Profile</a></li>
           </ul>
         </div>
       </div>
@@ -183,9 +183,27 @@
     <!--MyBooks Page-->
     <div id="my-Books-View" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
       <h1>My Books</h1>
-      <div class="input-group-lg" id="adv-search">
-        <input type="text" class="form-control" placeholder="Search for Books" />
-      </div>
+
+      <!--Add Book Form-->
+      <form id="Add-My-Book" class="form-inline">
+        <div class="form-group">
+          <label class="sr-only">Title</label>
+          <input type="text" name="title" class="form-control" id="inputTitle" placeholder="Title">
+        </div>
+        <div class="form-group">
+          <label class="sr-only">Author</label>
+          <input type="text" name="author" class="form-control" id="inputAuthor" placeholder="Author">
+        </div>
+        <div class="form-group">
+          <label class="sr-only">isbn #</label>
+          <input type="text" name="isbn" class="form-control" id="inputIsbn" placeholder="Isbn">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Add Book</button>
+        <div id="Add-My-Book-Message"></div>
+      </form>
+
+
       <div class="table-responsive">
         <table class="table table-striped">
 

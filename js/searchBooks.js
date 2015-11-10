@@ -13,9 +13,9 @@ var searchBooks = {
         return options.inverse(this);
       }
     });
+
     this.bookTemplate = Handlebars.compile($('#book-index').html());
     this.myBookTemplate = Handlebars.compile($('#my-books').html());
-
   },
 
   allBooksCallback: function(error, data){
@@ -35,6 +35,17 @@ var searchBooks = {
       console.log(data.books);
       var rowHTML = searchBooks.myBookTemplate({books: data.books});
       $("#myBooksTable").html(rowHTML);
+    }
+  },
+
+  addBookCallback: function(error, data){
+    if (error) {
+      console.log(error);
+    }else {
+      console.log(data);
+      $("#Add-My-Book-Message").html("Successfully added " + data.book.title + " to your Book list");
+      //re-load the My Books table.
+      bookApi.myBooks(currentUser.user.token, searchBooks.myBooksCallback);
     }
   }
 

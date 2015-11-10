@@ -35,9 +35,8 @@ var bookApi = {
     this.ajax({
       method: 'GET',
       url: this.url + '/books',
-      contentType: 'application/json',
-      //data: JSON.stringify(credentials),
-      dataType: 'json'
+      //contentType: 'application/json',
+      //dataType: 'json'
     }, callback);
   },
 
@@ -49,6 +48,19 @@ var bookApi = {
         Authorization: 'Token token=' + token
       },
       contentType: 'application/json',
+      dataType: 'json'
+    }, callback);
+  },
+
+  addBook: function addBook(token, credentials, callback) {
+    this.ajax({
+      method: 'POST',
+      url: this.url + '/books',
+      headers: {
+        Authorization: 'Token token=' + token
+      },
+      contentType: 'application/json',
+      data: JSON.stringify(credentials),
       dataType: 'json'
     }, callback);
   }

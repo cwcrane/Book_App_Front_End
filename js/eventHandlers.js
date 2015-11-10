@@ -6,6 +6,23 @@ $(document).ready(function() {
 
   searchBooks.init(); //creates Handlebars Templates
 
+  var form2object = function(form) {
+    var data = {};
+    $(form).find("input").each(function(index, element) {
+      var type = $(this).attr('type');
+      if ($(this).attr('name') && type !== 'submit' && type !== 'hidden') {
+        data[$(this).attr('name')] = $(this).val();
+      }
+    });
+    return data;
+  };
+
+  var wrap = function(root, formData) {
+    var wrapper = {};
+    wrapper[root] = formData;
+    return wrapper;
+  };
+
   $('#registerForm').on('submit', function(e) {
     var credentials = login.wrap('credentials', login.form2object(this));
     bookApi.register(credentials, login.registerCallback);
@@ -25,10 +42,23 @@ $(document).ready(function() {
     e.preventDefault();
   });
 
-  $("#My-Books").on('click', function(){
+  $("#navbar-My-Books").on('click', function(){
     ux.myBooksView();
     bookApi.myBooks(currentUser.user.token, searchBooks.myBooksCallback);
-  })
+  });
 
+  $("#navbar-Search").on('click', function(){
+    ux.uxState();
+  });
+
+  $("#navbar-Profile").on('click', function(){
+
+  });
+
+  $('#Add-My-Book').on('submit', function(e){
+    var credentials = wrap('book', form2object(this));
+    bookApi.addBook(currentUser.user.token, credentials, searchBooks.addBookCallback);
+    e.preventDefault();
+  });
 
 });

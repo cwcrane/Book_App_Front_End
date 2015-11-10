@@ -31,7 +31,7 @@ var ux = {
 
   skipLoginView: function(){
     $('#login-overlay').hide();
-    //$('#top-nav-bar').fadeIn(700).show();
+    $('#top-nav-bar').fadeIn(700).show();
     ux.showTopNavBar();
     $('#start-hide2').fadeIn(700).show();
     $('#start-hide3').fadeIn(700).show();
