@@ -41,6 +41,9 @@ var searchBooks = {
   addBookCallback: function(error, data){
     if (error) {
       console.log(error);
+      if (!currentUser.loggedIn) {
+        $("#Add-My-Book-Message").html("Please log in to make a book list and add books");
+      }
     }else {
       console.log(data);
       $("#Add-My-Book-Message").html("Successfully added " + data.book.title + " to your Book list");

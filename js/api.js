@@ -11,7 +11,7 @@ var bookApi = {
     });
   },
 
-  register: function register(credentials, callback) {
+  register: function(credentials, callback) {
     this.ajax({
       method: 'POST',
       url: this.url + '/register',
@@ -21,7 +21,7 @@ var bookApi = {
     }, callback);
   },
 
-  login: function login(credentials, callback) {
+  login: function(credentials, callback) {
     this.ajax({
       method: 'POST',
       url: this.url + '/login',
@@ -31,16 +31,14 @@ var bookApi = {
     }, callback);
   },
 
-  showBooks: function showBooks(callback) {
+  showBooks: function(callback) {
     this.ajax({
       method: 'GET',
       url: this.url + '/books',
-      //contentType: 'application/json',
-      //dataType: 'json'
     }, callback);
   },
 
-  myBooks: function myBooks(token, callback) {
+  myBooks: function(token, callback) {
     this.ajax({
       method: 'GET',
       url: this.url + '/books',
@@ -52,7 +50,7 @@ var bookApi = {
     }, callback);
   },
 
-  addBook: function addBook(token, credentials, callback) {
+  addBook: function(token, credentials, callback) {
     this.ajax({
       method: 'POST',
       url: this.url + '/books',

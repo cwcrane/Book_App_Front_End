@@ -24,13 +24,13 @@ $(document).ready(function() {
   };
 
   $('#registerForm').on('submit', function(e) {
-    var credentials = login.wrap('credentials', login.form2object(this));
+    var credentials = wrap('credentials', form2object(this));
     bookApi.register(credentials, login.registerCallback);
     e.preventDefault();
   });
 
   $('#loginForm').on('submit', function(e){
-    var credentials = login.wrap('credentials', login.form2object(this));
+    var credentials = wrap('credentials', form2object(this));
     bookApi.login(credentials, login.loginCallback);
     e.preventDefault();
   });

@@ -2,23 +2,6 @@
 
 var login = {
 
-  form2object: function(form) {
-      var data = {};
-      $(form).find("input").each(function(index, element) {
-        var type = $(this).attr('type');
-        if ($(this).attr('name') && type !== 'submit' && type !== 'hidden') {
-          data[$(this).attr('name')] = $(this).val();
-        }
-      });
-      return data;
-  },
-
-  wrap: function(root, formData) {
-    var wrapper = {};
-    wrapper[root] = formData;
-    return wrapper;
-  },
-
   registerCallback: function(error, data) {
     if (error) {
       $("#RegisterMessage").html("An error occured, please try again.")
