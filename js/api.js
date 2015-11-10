@@ -41,16 +41,14 @@ var bookApi = {
     }, callback);
   },
 
-  myBooks: function myBooks(id, token, callback) {
+  myBooks: function myBooks(token, callback) {
     this.ajax({
       method: 'GET',
       url: this.url + '/books',
-      user_id: id,
       headers: {
         Authorization: 'Token token=' + token
       },
       contentType: 'application/json',
-      //data: JSON.stringify(credentials),
       dataType: 'json'
     }, callback);
   }

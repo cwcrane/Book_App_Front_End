@@ -33,7 +33,7 @@ var searchBooks = {
       console.log(error);
     }else {
       console.log(data.books);
-      var rowHTML = searchBooks.mybookTemplate({books: data.books});
+      var rowHTML = searchBooks.myBookTemplate({books: data.books});
       $("#myBooksTable").html(rowHTML);
     }
   }

@@ -26,8 +26,8 @@ $(document).ready(function() {
   });
 
   $("#My-Books").on('click', function(){
-    bookApi.myBooks(currentUser.user.id, currentUser.user.token, searchBooks.myBooksCallback);
     ux.myBooksView();
+    bookApi.myBooks(currentUser.user.token, searchBooks.myBooksCallback);
   })
 
 
