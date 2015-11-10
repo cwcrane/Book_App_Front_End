@@ -1,51 +1,63 @@
 'use strict';
 
-  var currentUser = {
-    loggedIn: false,
-    skipLogIn: false,
-    user: {},
-  };
+var currentUser = {
+  loggedIn: false,
+  skipLogIn: false,
+  user: {},
+};
 
-  var beforeLoginView = function(){
-    $('#start-hide1').hide();
+var ux = {
+
+  beforeLoginView: function(){
+    $('#top-nav-bar').hide();
     $('#start-hide2').hide();
     $('#start-hide3').hide();
-    $('#my-Books-Table').hide();
+    $('#my-Books-View').hide();
     $('#login-overlay').fadeIn(100).show();
-  };
+  },
 
-  var afterLoginView = function(){
+  showTopNavBar: function() {
+    $('.top-nav-bar').css('visibility', 'visible');
+  },
+
+  afterLoginView: function(){
     $('#login-overlay').hide();
-    $('#start-hide1').fadeIn(700).show();
+    $('#top-nav-bar').fadeIn(700).show();
+    ux.showTopNavBar();
     $('#start-hide2').fadeIn(700).show();
     $('#start-hide3').fadeIn(700).show();
-    $('#my-Books-Table').hide();
-    loadBooks();
-  };
+    $('#my-Books-View').hide();
+  },
 
-  var skipLoginView = function(){
+  skipLoginView: function(){
     $('#login-overlay').hide();
-    $('#start-hide1').fadeIn(700).show();
+    //$('#top-nav-bar').fadeIn(700).show();
+    ux.showTopNavBar();
     $('#start-hide2').fadeIn(700).show();
     $('#start-hide3').fadeIn(700).show();
-    $('#my-Books-Table').hide();
-    loadBooks();
-  };
+    $('#my-Books-View').hide();
+  },
 
-  var uxState = function (){
+  uxState: function (){
     if (currentUser.loggedIn){
-      return afterLoginView();
+      return ux.afterLoginView();
     }else if (currentUser.skipLogIn){
-      return skipLoginView();
-    }else beforeLoginView();
-  };
+      return ux.skipLoginView();
+    }else ux.beforeLoginView();
+  },
 
-  var myBooksView = function(){
+  myBooksView: function(){
     $('#login-overlay').hide();
-    $('#start-hide1').hide();
+    $('#top-nav-bar').show();
+    ux.showTopNavBar();
     $('#start-hide2').hide();
     $('#start-hide3').hide();
-    $('#my-Books-Table').show();
-  };
+    $('#my-Books-View').show();
+  }
+
+};
+
+
+
 
 

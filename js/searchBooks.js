@@ -1,29 +1,41 @@
 'use strict';
 
-  Handlebars.registerHelper('ifOnLoan', function (conditionalVariable, options){
-    if (conditionalVariable === options.hash.value) {
-      return options.fn(this)
-    } else {
-      return options.inverse(this);
-    }
-  });
+var searchBooks = {
 
-  var bookTemplate = Handlebars.compile($('#book-index').html());
+  bookTemplate: function(){},
+  myBookTemplate: function(){},
 
-//MAIN TABLE RESULTS ON SEARCH PAGE
+  init: function(){
+    Handlebars.registerHelper('ifOnLoan', function (conditionalVariable, options){
+      if (conditionalVariable === options.hash.value) {
+        return options.fn(this)
+      } else {
+        return options.inverse(this);
+      }
+    });
+    this.bookTemplate = Handlebars.compile($('#book-index').html());
+    this.myBookTemplate = Handlebars.compile($('#my-books').html());
 
-  var bookCallback = function(error, data){
-    if (error){console.log(error);
+  },
+
+  allBooksCallback: function(error, data){
+    if (error) {
+      console.log(error);
     }else {
       console.log(data.books);
-      var rowHTML = bookTemplate({books: data.books});
+      var rowHTML = searchBooks.bookTemplate({books: data.books});
       $("#allBooks").html(rowHTML);
     }
-  };
+  },
 
-  var loadBooks = function(){
-    bookApi.showBooks(bookCallback);
-  };
+  myBooksCallback: function(error, data){
+    if (error) {
+      console.log(error);
+    }else {
+      console.log(data.books);
+      var rowHTML = searchBooks.mybookTemplate({books: data.books});
+      $("#myBooksTable").html(rowHTML);
+    }
+  }
 
-
-
+};

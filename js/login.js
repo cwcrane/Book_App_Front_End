@@ -1,30 +1,25 @@
 'use strict';
 
-uxState();
+var login = {
 
-$(document).ready(function() {
+  form2object: function(form) {
+      var data = {};
+      $(form).find("input").each(function(index, element) {
+        var type = $(this).attr('type');
+        if ($(this).attr('name') && type !== 'submit' && type !== 'hidden') {
+          data[$(this).attr('name')] = $(this).val();
+        }
+      });
+      return data;
+  },
 
-  var form2object = function(form) {
-    var data = {};
-    $(form).find("input").each(function(index, element) {
-      var type = $(this).attr('type');
-      if ($(this).attr('name') && type !== 'submit' && type !== 'hidden') {
-        data[$(this).attr('name')] = $(this).val();
-      }
-    });
-    return data;
-  };
-
-  var wrap = function wrap(root, formData) {
+  wrap: function(root, formData) {
     var wrapper = {};
     wrapper[root] = formData;
     return wrapper;
-  };
+  },
 
-
-//REGISTER CLICKHANDLER
-
-  var registerCallback = function(error, data) {
+  registerCallback: function(error, data) {
     if (error) {
       $("#RegisterMessage").html("An error occured, please try again.")
       //console.log('status: ' + error.status + ', error: ' +error.error)
@@ -32,18 +27,9 @@ $(document).ready(function() {
       $("#RegisterMessage").html("Registration successful, please log in.");
       //console.log(data);
     };
-  };
+  },
 
-  $('#registerForm').on('submit', function(e) {
-    var credentials = wrap('credentials', form2object(this));
-    bookApi.register(credentials, registerCallback);
-    e.preventDefault();
-  });
-
-
-//LOGIN CLICKHANDLER
-
-  var loginCallback = function(error, data) {
+  loginCallback: function(error, data) {
     if (error) {
       $("#LoginMessage").html("Error occured, please try again.")
       //console.log('status: ' + error.status + ', error: ' +error.error)
@@ -51,24 +37,8 @@ $(document).ready(function() {
       currentUser.user = data.user;
       currentUser.loggedIn = true;
       console.log(currentUser);
-      uxState();
+      ux.uxState();
+      bookApi.showBooks(searchBooks.allBooksCallback);
     };
-  };
-
-  $('#loginForm').on('submit', function(e){
-    var credentials = wrap('credentials', form2object(this));
-    bookApi.login(credentials, loginCallback);
-    e.preventDefault();
-  });
-
-
-//SKIP LOGIN
-
-  $("#skipLogIn").on('click', function(e){
-    currentUser.skipLogIn = true;
-    uxState();
-    e.preventDefault();
-  });
-
-});
-
+  }
+};

@@ -15,9 +15,13 @@
     <link href="styles/stylesheet.css" rel="stylesheet">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/handlebars-v3.0.3.js"></script>
     <script src="js/api.js" type="application/javascript" charset="utf-8" async defer></script>
     <script src="js/ux.js" type="application/javascript" charset="utf-8" async defer></script>
+    <script src="js/searchBooks.js" type="application/javascript" charset="utf-8" async defer></script>
     <script src="js/login.js" type="application/javascript" charset="utf-8" async defer></script>
+    <script src="js/eventHandlers.js" type="application/javascript" charset="utf-8" async defer></script>
+
 
   </head>
 
@@ -92,7 +96,7 @@
 <!--After Registration & Login, this will show-->
 
     <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div id="start-hide1" class="container-fluid">
+      <div id="top-nav-bar" class="container-fluid top-nav-bar">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
@@ -177,7 +181,7 @@
     </div>
 
     <!--MyBooks Page-->
-    <div id="my-Books-Table" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    <div id="my-Books-View" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
       <h1>My Books</h1>
       <div class="input-group-lg" id="adv-search">
         <input type="text" class="form-control" placeholder="Search for Books" />
@@ -210,11 +214,6 @@
         </table>
       </div>
     </div>
-
-
-    <script src="js/searchBooks.js" type="application/javascript" charset="utf-8" async defer></script>
-    <script src="js/myBooks.js" type="application/javascript" charset="utf-8" async defer></script>
-    <script type="text/javascript" src="assets/handlebars-v3.0.3.js"></script>
 
 
   </body>

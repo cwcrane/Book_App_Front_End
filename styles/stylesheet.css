@@ -8,6 +8,10 @@ body {
 }
 
 
+.top-nav-bar {
+  visibility: hidden;
+}
+
 /*
  * Global add-ons
  */
