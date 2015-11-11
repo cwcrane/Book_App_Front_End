@@ -28,12 +28,14 @@ $(document).ready(function() {
   $('#registerForm').on('submit', function(e) {
     var credentials = wrap('credentials', form2object(this));
     api.register(credentials, login.registerCB);
+    $(".form-control").val('');
     e.preventDefault();
   });
 
   $('#loginForm').on('submit', function(e){
     var credentials = wrap('credentials', form2object(this));
     api.login(credentials, login.loginCB);
+    $(".form-control").val('');
     e.preventDefault();
   });
 
@@ -77,6 +79,7 @@ $(document).ready(function() {
 
   $("#reload-main-search").on('click', function(e){
     api.showBooks(bookFuncs.allBooksCB);
+    $(".form-control").val('');
     e.preventDefault();
   });
 
