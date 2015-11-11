@@ -66,7 +66,7 @@ var api = {
   searchBook: function(query, callback) {
     this.ajax({
       method: 'GET',
-      url: this.url + '/books'+'/?title='+query,
+      url: this.url + '/books'+'/?query='+query,
     }, callback);
   }
 
