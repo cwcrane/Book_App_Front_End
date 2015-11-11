@@ -67,9 +67,9 @@ $(document).ready(function() {
     e.preventDefault();
   });
 
-  $("#adv-search").on('submit', function(e){
-    var data = $(this).val();
-    api.searchBook(data, bookFuncs.allBooksCB);
+  $("#main-search-by-title").on('submit', function(e){
+    var input = $(this).find("input").val();
+    api.searchBook(input, bookFuncs.allBooksCB);
     e.preventDefault();
   });
 

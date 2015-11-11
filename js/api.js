@@ -63,11 +63,10 @@ var api = {
     }, callback);
   },
 
-  searchBook: function(data, callback) {
+  searchBook: function(query, callback) {
     this.ajax({
       method: 'GET',
-      url: this.url + '/books'+'/?title='+data,
-      data: JSON.stringify(data),
+      url: this.url + '/books'+'/?title='+query,
     }, callback);
   }
 
