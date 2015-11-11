@@ -67,9 +67,16 @@ $(document).ready(function() {
     e.preventDefault();
   });
 
+  //Search//
+
   $("#main-search-by-title").on('submit', function(e){
     var input = $(this).find("input").val();
     api.searchBook(input, bookFuncs.allBooksCB);
+    e.preventDefault();
+  });
+
+  $("#reload-main-search").on('click', function(e){
+    api.showBooks(bookFuncs.allBooksCB);
     e.preventDefault();
   });
 

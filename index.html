@@ -147,6 +147,7 @@
           <div class="input-group-lg" id="adv-search">
             <input type="text" class="form-control" placeholder="Search by Title" />
             <button type="submit" class="btn btn-primary">search</button>
+            <button id="reload-main-search" type="button" class="btn btn-warning">Refresh</button>
           </div>
         </div>
       </form>
@@ -168,17 +169,17 @@
           <tbody id='allBooks'>
             <script id="book-index" type="text/x-handlebars-template">
               {{#each books}}
-            <tr>
-              <td>{{#ifOnLoan status value="Available"}}<button type="button" class="btn btn-success">Available</button>
-              {{else}}<button type="button" class="btn btn-warning">On Loan</button>
-              {{/ifOnLoan}}
-              </td>
-              <td>{{title}}</td>
-              <td>{{author}}</td>
-              <td>{{isbn}}</td>
-              <td>Rating</td>
-            </tr>
-            {{/each}}
+              <tr>
+                <td>{{#ifOnLoan status value="Available"}}<button type="button" class="btn btn-success">Available</button>
+                {{else}}<button type="button" class="btn btn-warning">On Loan</button>
+                {{/ifOnLoan}}
+                </td>
+                <td>{{title}}</td>
+                <td>{{author}}</td>
+                <td>{{isbn}}</td>
+                <td>Rating</td>
+              </tr>
+              {{/each}}
             </script>
           </tbody>
 
