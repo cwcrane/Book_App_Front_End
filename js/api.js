@@ -1,6 +1,6 @@
 'use strict';
 
-var bookApi = {
+var api = {
   url: 'http://localhost:3000',
 
   ajax: function(config, cb) {
@@ -60,6 +60,14 @@ var bookApi = {
       contentType: 'application/json',
       data: JSON.stringify(credentials),
       dataType: 'json'
+    }, callback);
+  },
+
+  searchBook: function(data, callback) {
+    this.ajax({
+      method: 'GET',
+      url: this.url + '/books'+'/?title='+data,
+      data: JSON.stringify(data),
     }, callback);
   }
 

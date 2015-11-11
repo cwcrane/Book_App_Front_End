@@ -2,7 +2,7 @@
 
 var login = {
 
-  registerCallback: function(error, data) {
+  registerCB: function(error, data) {
     if (error) {
       $("#RegisterMessage").html("An error occured, please try again.")
       //console.log('status: ' + error.status + ', error: ' +error.error)
@@ -12,16 +12,16 @@ var login = {
     };
   },
 
-  loginCallback: function(error, data) {
+  loginCB: function(error, data) {
     if (error) {
       $("#LoginMessage").html("Error occured, please try again.")
       //console.log('status: ' + error.status + ', error: ' +error.error)
     } else if (data){
-      currentUser.user = data.user;
-      currentUser.loggedIn = true;
-      console.log(currentUser);
+      cUser.user = data.user;
+      cUser.loggedIn = true;
+      //console.log(cUser);
       ux.uxState();
-      bookApi.showBooks(searchBooks.allBooksCallback);
+      api.showBooks(bookFuncs.allBooksCB);
     };
   }
 };

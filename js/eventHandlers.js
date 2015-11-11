@@ -4,7 +4,7 @@ $(document).ready(function() {
 
   ux.uxState(); //load initial view first.
 
-  searchBooks.init(); //creates Handlebars Templates
+  bookFuncs.init(); //creates Handlebars Templates
 
   var form2object = function(form) {
     var data = {};
@@ -23,28 +23,32 @@ $(document).ready(function() {
     return wrapper;
   };
 
+  //Login Actions//
+
   $('#registerForm').on('submit', function(e) {
     var credentials = wrap('credentials', form2object(this));
-    bookApi.register(credentials, login.registerCallback);
+    api.register(credentials, login.registerCB);
     e.preventDefault();
   });
 
   $('#loginForm').on('submit', function(e){
     var credentials = wrap('credentials', form2object(this));
-    bookApi.login(credentials, login.loginCallback);
+    api.login(credentials, login.loginCB);
     e.preventDefault();
   });
 
   $("#skipLogIn").on('click', function(e){
-    currentUser.skipLogIn = true;
+    cUser.skipLogIn = true;
     ux.uxState();
-    bookApi.showBooks(searchBooks.allBooksCallback);
+    api.showBooks(bookFuncs.allBooksCB);
     e.preventDefault();
   });
 
+  //Navbar Actions//
+
   $("#navbar-My-Books").on('click', function(){
     ux.myBooksView();
-    bookApi.myBooks(currentUser.user.token, searchBooks.myBooksCallback);
+    api.myBooks(cUser.user.token, bookFuncs.myBooksCB);
   });
 
   $("#navbar-Search").on('click', function(){
@@ -55,10 +59,20 @@ $(document).ready(function() {
 
   });
 
+  //My Books//
+
   $('#Add-My-Book').on('submit', function(e){
-    var credentials = wrap('book', form2object(this));
-    bookApi.addBook(currentUser.user.token, credentials, searchBooks.addBookCallback);
+    var data = wrap('book', form2object(this));
+    api.addBook(cUser.user.token, data, bookFuncs.addBookCB);
     e.preventDefault();
   });
 
+  $("#adv-search").on('submit', function(e){
+    var data = $(this).val();
+    api.searchBook(data, bookFuncs.allBooksCB);
+    e.preventDefault();
+  });
+
+
 });
+

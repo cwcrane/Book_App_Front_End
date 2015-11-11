@@ -1,6 +1,6 @@
 'use strict';
 
-var currentUser = {
+var cUser = {
   loggedIn: false,
   skipLogIn: false,
   user: {},
@@ -39,9 +39,9 @@ var ux = {
   },
 
   uxState: function (){
-    if (currentUser.loggedIn){
+    if (cUser.loggedIn){
       return ux.afterLoginView();
-    }else if (currentUser.skipLogIn){
+    }else if (cUser.skipLogIn){
       return ux.skipLoginView();
     }else ux.beforeLoginView();
   },

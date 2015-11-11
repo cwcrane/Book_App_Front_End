@@ -18,7 +18,7 @@
     <script type="text/javascript" src="assets/handlebars-v3.0.3.js"></script>
     <script src="js/api.js" type="application/javascript" charset="utf-8" async defer></script>
     <script src="js/ux.js" type="application/javascript" charset="utf-8" async defer></script>
-    <script src="js/searchBooks.js" type="application/javascript" charset="utf-8" async defer></script>
+    <script src="js/books.js" type="application/javascript" charset="utf-8" async defer></script>
     <script src="js/login.js" type="application/javascript" charset="utf-8" async defer></script>
     <script src="js/eventHandlers.js" type="application/javascript" charset="utf-8" async defer></script>
 
@@ -209,6 +209,7 @@
 
           <thead>
             <tr>
+              <th>Status</th>
               <th>Title</th>
               <th>Author</th>
               <th>isbn</th>
@@ -220,6 +221,7 @@
             <script id="my-books" type="text/x-handlebars-template">
               {{#each books}}
             <tr>
+              <td>{{status}}</td>
               <td>{{title}}</td>
               <td>{{author}}</td>
               <td>{{isbn}}</td>
