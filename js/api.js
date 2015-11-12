@@ -80,6 +80,32 @@ var api = {
       contentType: 'application/json',
       dataType: 'json'
     }, callback);
+  },
+
+  myLoans: function(token, callback) {
+    this.ajax({
+      method: 'GET',
+      url: this.url + '/borrowed_books',
+      headers: {
+        Authorization: 'Token token=' + token
+      },
+      contentType: 'application/json',
+      dataType: 'json'
+    }, callback);
+  },
+
+
+  requestBook: function(token, data, callback) {
+    this.ajax({
+      method: 'POST',
+      url: this.url + '/borrow_requests',
+      headers: {
+        Authorization: 'Token token=' + token
+      },
+      contentType: 'application/json',
+      data: JSON.stringify(data),
+      dataType: 'json'
+    }, callback);
   }
 
 //need comma in between

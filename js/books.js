@@ -6,6 +6,7 @@ var bookFuncs = {
   bookTemplate: function(){},
   myBookTemplate: function(){},
   requestToYouTemplate: function(){},
+  requestForMeTemplate: function(){},
 
   init: function(){
     Handlebars.registerHelper('ifOnLoan', function (conditionalVariable, options){
@@ -19,6 +20,7 @@ var bookFuncs = {
     this.bookTemplate = Handlebars.compile($('#book-index').html());
     this.myBookTemplate = Handlebars.compile($('#my-books').html());
     this.requestToYouTemplate = Handlebars.compile($('#request-to-you-index').html());
+    this.requestForMeTemplate = Handlebars.compile($('#request-for-me-index').html());
   },
   // ^ end Handlebars ^ //
 
@@ -63,6 +65,16 @@ var bookFuncs = {
       console.log(data);
       var rowHTML = bookFuncs.requestToYouTemplate({borrow_requests: data.borrow_requests});
       $("#request-to-you").html(rowHTML);
+    }
+  },
+
+  requestMeCB: function(error, data){
+    if (error) {
+      console.log(error);
+    }else {
+      console.log('REQUESTME:' + data.books);
+      var rowHTML = bookFuncs.requestForMeTemplate({books: data.books});
+      $("#request-for-me").html(rowHTML);
     }
   }
 

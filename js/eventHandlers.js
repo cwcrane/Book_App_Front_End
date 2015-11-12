@@ -52,6 +52,7 @@ $(document).ready(function() {
     ux.myBooksView();
     api.myBooks(cUser.user.token, bookFuncs.myBooksCB);
     api.requestYou(cUser.user.token, bookFuncs.requestYouCB);
+    api.myLoans(cUser.user.token, bookFuncs.requestMeCB);
   });
 
   $("#navbar-Search").on('click', function(){
@@ -84,6 +85,13 @@ $(document).ready(function() {
     e.preventDefault();
   });
 
+  //Requests
+  $("#request-a-book").on('click', function(e){
+    var newRequest = {};
+    api.requestBook(cUser.user.token, newRequest, newRequestCB)
+    //$("request-a-book").attr('class').val("btn btn-warning")
+    e.preventDefault();
+  });
 
 });
 

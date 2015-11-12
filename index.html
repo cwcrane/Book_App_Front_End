@@ -119,7 +119,7 @@
 <!--Requests I Made for Books (user_id = me) Table in Sidebar-->
     <div id="start-hide2" class="container-fluid">
       <div class="row">
-        <div class="col-sm-3 col-md-3 col-md-10 sidebar">
+        <div class="col-sm-3 col-md-3 col-md-10 nav-sidebar">
 
           <div id="borrow-request-to-you" class="table-responsive">
             <table class="table table-striped table-condensed">
@@ -130,6 +130,7 @@
                   <th>Book</th>
                   <th>Request Date</th>
                   <th>Due Back</th>
+                  <th>Owner</th>
                 </tr>
               </thead>
 
@@ -144,6 +145,47 @@
                     <td>{{book.title}}</td>
                     <td>{{request_date}}</td>
                     <td>{{due_back}}</td>
+                    <td>{{book_owner.first_name}} {{book_owner.last_name}}</td>
+                  </tr>
+                  {{/each}}
+                </script>
+              </tbody>
+
+            </table>
+          </div>
+
+        </div>
+      </div>
+
+    <!--Loan Requests - My Books -->
+
+      <div class="row">
+        <div class="col-sm-3 col-md-3 col-md-10 nav-sidebar">
+
+          <div id="loan-request-for-me" class="table-responsive">
+            <table class="table table-striped table-condensed">
+              <h3>Loan Requests for My Books</h3>
+              <thead>
+                <tr>
+                  <th>Status</th>
+                  <th>Book</th>
+                  <th>Request Date</th>
+                  <th>Requestor</th>
+                </tr>
+              </thead>
+
+              <tbody id='request-for-me'>
+                <script id="request-for-me-index" type="text/x-handlebars-template">
+                  {{#each books}}
+                  <tr>
+                    <td>{{#ifOnLoan response value=false}}<button type="button" class="btn btn-warning">Respond</button>
+                    {{else}}<div style="color:green">On Loan</div>
+                    {{/ifOnLoan}}
+                    </td>
+                    <td>{{book.title}}</td>
+                    <td>{{request_date}}</td>
+                    <td>{{profile.first_name}} {{profile.last_name}}</td>
+
                   </tr>
                   {{/each}}
                 </script>
@@ -155,6 +197,7 @@
         </div>
       </div>
     </div>
+
 
 
     <div id="start-hide3" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
@@ -188,8 +231,8 @@
             <script id="book-index" type="text/x-handlebars-template">
               {{#each books}}
               <tr>
-                <td>{{#ifOnLoan status value="Available"}}<button type="button" class="btn btn-success">Available</button>
-                {{else}}<button type="button" class="btn btn-warning">On Loan</button>
+                <td>{{#ifOnLoan status value="Available"}}<button id="request-a-book" type="button" class="btn btn-success">Available</button>
+                {{else}}<button type="button" class="btn btn-danger">On Loan</button>
                 {{/ifOnLoan}}
                 </td>
                 <td>{{title}}</td>
