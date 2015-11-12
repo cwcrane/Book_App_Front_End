@@ -24,7 +24,7 @@ var ux = {
     $('#login-overlay').hide();
     $('#top-nav-bar').fadeIn(700).show();
     ux.showTopNavBar();
-    $('#start-hide2').fadeIn(700).show();
+    $('#start-hide2').fadeIn(700).hide();
     $('#start-hide3').fadeIn(700).show();
     $('#my-Books-View').hide();
   },
@@ -33,7 +33,7 @@ var ux = {
     $('#login-overlay').hide();
     $('#top-nav-bar').fadeIn(700).show();
     ux.showTopNavBar();
-    $('#start-hide2').fadeIn(700).show();
+    $('#start-hide2').fadeIn(700).hide();
     $('#start-hide3').fadeIn(700).show();
     $('#my-Books-View').hide();
   },
@@ -50,7 +50,7 @@ var ux = {
     $('#login-overlay').hide();
     $('#top-nav-bar').show();
     ux.showTopNavBar();
-    $('#start-hide2').hide();
+    $('#start-hide2').show();
     $('#start-hide3').hide();
     $('#my-Books-View').show();
   }

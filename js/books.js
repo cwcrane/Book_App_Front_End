@@ -5,6 +5,7 @@ var bookFuncs = {
   //Handlebars to generate tables//
   bookTemplate: function(){},
   myBookTemplate: function(){},
+  requestToYouTemplate: function(){},
 
   init: function(){
     Handlebars.registerHelper('ifOnLoan', function (conditionalVariable, options){
@@ -17,6 +18,7 @@ var bookFuncs = {
 
     this.bookTemplate = Handlebars.compile($('#book-index').html());
     this.myBookTemplate = Handlebars.compile($('#my-books').html());
+    this.requestToYouTemplate = Handlebars.compile($('#request-to-you-index').html());
   },
   // ^ end Handlebars ^ //
 
@@ -51,6 +53,16 @@ var bookFuncs = {
       $("#Add-My-Book-Message").html("Successfully added " + data.book.title + " to your Book list");
       //re-load the My Books table.
       api.myBooks(cUser.user.token, bookFuncs.myBooksCB);
+    }
+  },
+
+  requestYouCB: function(error, data){
+    if (error) {
+      console.log(error);
+    }else {
+      console.log(data);
+      var rowHTML = bookFuncs.requestToYouTemplate({borrow_requests: data.borrow_requests});
+      $("#request-to-you").html(rowHTML);
     }
   }
 

@@ -51,6 +51,7 @@ $(document).ready(function() {
   $("#navbar-My-Books").on('click', function(){
     ux.myBooksView();
     api.myBooks(cUser.user.token, bookFuncs.myBooksCB);
+    api.requestYou(cUser.user.token, bookFuncs.requestYouCB);
   });
 
   $("#navbar-Search").on('click', function(){

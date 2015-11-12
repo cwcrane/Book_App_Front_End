@@ -68,6 +68,18 @@ var api = {
       method: 'GET',
       url: this.url + '/books'+'/?query='+query,
     }, callback);
+  },
+
+  requestYou: function(token, callback) {
+    this.ajax({
+      method: 'GET',
+      url: this.url + '/borrow_requests',
+      headers: {
+        Authorization: 'Token token=' + token
+      },
+      contentType: 'application/json',
+      dataType: 'json'
+    }, callback);
   }
 
 //need comma in between
