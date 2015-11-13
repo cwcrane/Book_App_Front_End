@@ -94,8 +94,7 @@ var api = {
     }, callback);
   },
 
-
-  requestBook: function(token, data, callback) {
+  requestBook: function(token, newRequest, callback) {
     this.ajax({
       method: 'POST',
       url: this.url + '/borrow_requests',
@@ -103,7 +102,7 @@ var api = {
         Authorization: 'Token token=' + token
       },
       contentType: 'application/json',
-      data: JSON.stringify(data),
+      data: JSON.stringify(newRequest),
       dataType: 'json'
     }, callback);
   }

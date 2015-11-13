@@ -86,11 +86,25 @@ $(document).ready(function() {
   });
 
   //Requests
-  $("#request-a-book").on('click', function(e){
-    var newRequest = {};
-    api.requestBook(cUser.user.token, newRequest, newRequestCB)
-    //$("request-a-book").attr('class').val("btn btn-warning")
-    e.preventDefault();
+  $("#allBooks").on('click', function(event){
+    // target = element that generated the click event
+    var buttonClicked = $(event.target)
+
+    // HTML 5 gives all element the ability to store data on them
+    // need <p data-foo="hello"></p>
+    // elementForP.data('foo') // return the string "hello"
+    var idClicked = buttonClicked.data('id');
+
+    console.log("You clicked on the that ");
+    var newRequest = {
+        borrow_request: {
+        book_id: idClicked,
+        user_id: cUser.user.id
+      }
+    };
+    api.requestBook(cUser.user.token, newRequest, bookFuncs.newRequestCB);
+    // //$("request-a-book").attr('class').val("btn btn-warning")
+    event.preventDefault();
   });
 
 });

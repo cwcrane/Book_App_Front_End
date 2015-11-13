@@ -28,7 +28,7 @@ var bookFuncs = {
     if (error) {
       console.log(error);
     }else {
-      //console.log(data.books);
+      console.log(data.books);
       var rowHTML = bookFuncs.bookTemplate({books: data.books});
       $("#allBooks").html(rowHTML);
     }
@@ -38,7 +38,7 @@ var bookFuncs = {
     if (error) {
       console.log(error);
     }else {
-      //console.log(data.books);
+      console.log(data.books);
       var rowHTML = bookFuncs.myBookTemplate({books: data.books});
       $("#myBooksTable").html(rowHTML);
     }
@@ -75,6 +75,17 @@ var bookFuncs = {
       console.log('REQUESTME:' + data.books);
       var rowHTML = bookFuncs.requestForMeTemplate({books: data.books});
       $("#request-for-me").html(rowHTML);
+    }
+  },
+
+  newRequestCB: function(error, data){
+    if (error) {
+      console.log("error" + error);
+      // if (!cUser.loggedIn) {
+      //   $("#Add-My-Book-Message").html("Please log in to make a book list and add books");
+      // }
+    }else {
+      console.log("success" + data);
     }
   }
 

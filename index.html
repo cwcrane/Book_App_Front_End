@@ -224,6 +224,7 @@
               <th>Author</th>
               <th>isbn</th>
               <th>User Rating <br>(1-5)</th>
+              <th>Rating on<br>GoodReads.com</th>
             </tr>
           </thead>
 
@@ -231,7 +232,7 @@
             <script id="book-index" type="text/x-handlebars-template">
               {{#each books}}
               <tr>
-                <td>{{#ifOnLoan status value="Available"}}<button id="request-a-book" type="button" class="btn btn-success">Available</button>
+                <td>{{#ifOnLoan status value="Available"}}<button data-delete-id={{id}} type="button" class="btn btn-success">Available</button>
                 {{else}}<button type="button" class="btn btn-danger">On Loan</button>
                 {{/ifOnLoan}}
                 </td>
@@ -239,6 +240,7 @@
                 <td>{{author}}</td>
                 <td>{{isbn}}</td>
                 <td>{{rating.rating}}</td>
+                <td>{{average_rating}}</td>
               </tr>
               {{/each}}
             </script>
