@@ -99,11 +99,12 @@ $(document).ready(function() {
     var newRequest = {
         borrow_request: {
         book_id: idClicked,
-        user_id: cUser.user.id
+        user_id: cUser.user.id,
+        date: Date.now
       }
     };
     api.requestBook(cUser.user.token, newRequest, bookFuncs.newRequestCB);
-    // //$("request-a-book").attr('class').val("btn btn-warning")
+    //$(event.target).attr("class").text("btn btn-warning");
     event.preventDefault();
   });
 

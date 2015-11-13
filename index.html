@@ -190,7 +190,7 @@
                   <th>Book</th>
                   <th>Request Date</th>
                   <th>Due Back</th>
-                  <th>Owner</th>
+                  <th>Owner id</th>
                 </tr>
               </thead>
 
@@ -205,7 +205,7 @@
                     <td>{{book.title}}</td>
                     <td>{{request_date}}</td>
                     <td>{{due_back}}</td>
-                    <td>{{book_owner.first_name}} {{book_owner.last_name}}</td>
+                    <td>{{book.user_id}}</td>
                   </tr>
                   {{/each}}
                 </script>
@@ -278,8 +278,10 @@
               <th>Title</th>
               <th>Author</th>
               <th>isbn</th>
+              <th>Owner</th>
+              <th>Location</th>
               <th>User Rating <br>(1-5)</th>
-              <th>Rating on<br>GoodReads.com</th>
+              <th>Rating on<br>GoodReads</th>
             </tr>
           </thead>
 
@@ -294,6 +296,8 @@
                 <td>{{title}}</td>
                 <td>{{author}}</td>
                 <td>{{isbn}}</td>
+                <td>{{profile.first_name}} {{profile.last_name}}</td>
+                <td>{{profile.city}}, {{profile.state}}</td>
                 <td>{{rating.rating}}</td>
                 <td>{{average_rating}}</td>
               </tr>
