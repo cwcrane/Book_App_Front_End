@@ -116,10 +116,70 @@
       </div>
     </nav>
 
-<!--Requests I Made for Books (user_id = me) Table in Sidebar-->
+
+
+    <!--MyBooks Page-->
     <div id="start-hide2" class="container-fluid">
       <div class="row">
-        <div class="col-sm-3 col-md-3 col-md-10 nav-sidebar">
+
+        <div id="my-Books-View" class="col-sm-9 col-sm-offset-4 main">
+          <!--two classes I removed: col-md-10 col-md-offset-2 -->
+          <h1>My Books</h1>
+
+          <!--Add Book Form-->
+          <form id="Add-My-Book" class="form-inline">
+            <div class="form-group">
+              <label class="sr-only">Title</label>
+              <input type="text" name="title" class="form-control" id="inputTitle" placeholder="Title">
+            </div>
+            <div class="form-group">
+              <label class="sr-only">Author</label>
+              <input type="text" name="author" class="form-control" id="inputAuthor" placeholder="Author">
+            </div>
+            <div class="form-group">
+              <label class="sr-only">isbn #</label>
+              <input type="text" name="isbn" class="form-control" id="inputIsbn" placeholder="Isbn">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Add Book</button>
+            <div id="Add-My-Book-Message"></div>
+          </form>
+
+
+          <div class="table-responsive">
+            <table class="table table-striped">
+
+              <thead>
+                <tr>
+                  <th>Status</th>
+                  <th>Title</th>
+                  <th>Author</th>
+                  <th>isbn</th>
+                  <th>Rating</th>
+                </tr>
+              </thead>
+
+              <tbody id='myBooksTable'>
+                <script id="my-books" type="text/x-handlebars-template">
+                  {{#each books}}
+                <tr>
+                  <td>{{status}}</td>
+                  <td>{{title}}</td>
+                  <td>{{author}}</td>
+                  <td>{{isbn}}</td>
+                  <td>Rating</td>
+                </tr>
+                {{/each}}
+                </script>
+              </tbody>
+
+            </table>
+          </div>
+        </div>
+
+        <!--Sidebar tables-->
+
+        <div class="col-sm-3 col-md-4 col-md-10 sidebar">
 
           <div id="borrow-request-to-you" class="table-responsive">
             <table class="table table-striped table-condensed">
@@ -154,13 +214,6 @@
             </table>
           </div>
 
-        </div>
-      </div>
-
-    <!--Loan Requests - My Books -->
-
-      <div class="row">
-        <div class="col-sm-3 col-md-3 col-md-10 nav-sidebar">
 
           <div id="loan-request-for-me" class="table-responsive">
             <table class="table table-striped table-condensed">
@@ -194,13 +247,15 @@
             </table>
           </div>
 
+
+          </div>
         </div>
       </div>
     </div>
 
 
 
-    <div id="start-hide3" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    <div id="start-hide3" class="col-sm-9 col-sm-offset-0 col-md-10 col-md-offset-1 main">
       <h1>Search for a Book to Borrow</h1>
 
       <form id="main-search-by-title" class="form-inline">
@@ -243,62 +298,6 @@
                 <td>{{average_rating}}</td>
               </tr>
               {{/each}}
-            </script>
-          </tbody>
-
-        </table>
-      </div>
-    </div>
-
-    <!--MyBooks Page-->
-    <div id="my-Books-View" class="col-sm-9 col-sm-offset-3 main">
-      <!--two classes I removed: col-md-10 col-md-offset-2 -->
-      <h1>My Books</h1>
-
-      <!--Add Book Form-->
-      <form id="Add-My-Book" class="form-inline">
-        <div class="form-group">
-          <label class="sr-only">Title</label>
-          <input type="text" name="title" class="form-control" id="inputTitle" placeholder="Title">
-        </div>
-        <div class="form-group">
-          <label class="sr-only">Author</label>
-          <input type="text" name="author" class="form-control" id="inputAuthor" placeholder="Author">
-        </div>
-        <div class="form-group">
-          <label class="sr-only">isbn #</label>
-          <input type="text" name="isbn" class="form-control" id="inputIsbn" placeholder="Isbn">
-        </div>
-
-        <button type="submit" class="btn btn-primary">Add Book</button>
-        <div id="Add-My-Book-Message"></div>
-      </form>
-
-
-      <div class="table-responsive">
-        <table class="table table-striped">
-
-          <thead>
-            <tr>
-              <th>Status</th>
-              <th>Title</th>
-              <th>Author</th>
-              <th>isbn</th>
-              <th>Rating</th>
-            </tr>
-          </thead>
-
-          <tbody id='myBooksTable'>
-            <script id="my-books" type="text/x-handlebars-template">
-              {{#each books}}
-            <tr>
-              <td>{{status}}</td>
-              <td>{{title}}</td>
-              <td>{{author}}</td>
-              <td>{{isbn}}</td>
-              <td>Rating</td>
-            </tr>
-            {{/each}}
             </script>
           </tbody>
 

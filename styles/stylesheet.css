@@ -107,3 +107,13 @@ body {
   display: inline-block;
   border-radius: 50%;
 }
+.left {
+  float: left;
+}
+
+.start-hide2 {
+  display: inline-block;
+}
+.my-Books-View {
+  display: inline-block;
+}
