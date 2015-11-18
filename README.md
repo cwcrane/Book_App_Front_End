@@ -1,5 +1,6 @@
 #Book Swap
 
+This is the front-end repo. The back end repo is located here: https://github.com/cwcrane/project2-api
 
 ###Purpose:
 
@@ -27,6 +28,8 @@ As a user...
   * add notes on books
   * map view of books
 
+###Initial Wireframe & Data Model
+https://github.com/cwcrane/Book_App_Front_End/blob/master/assets/Wireframe.jpg
 
 ###Database Structure:
 
