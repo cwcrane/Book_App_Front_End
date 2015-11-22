@@ -289,7 +289,7 @@
             <script id="book-index" type="text/x-handlebars-template">
               {{#each books}}
               <tr>
-                <td>{{#ifOnLoan status value="Available"}}<button data-delete-id={{id}} type="button" class="btn btn-success">Available</button>
+                <td>{{#ifOnLoan status value="Available"}}<button data-book-id={{id}} type="button" class="btn btn-success">Available</button>
                 {{else}}<button type="button" class="btn btn-danger">On Loan</button>
                 {{/ifOnLoan}}
                 </td>

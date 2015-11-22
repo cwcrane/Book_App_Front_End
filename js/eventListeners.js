@@ -23,6 +23,8 @@ $(document).ready(function() {
     return wrapper;
   };
 
+  var today = (new Date()).getFullYear() +'-'+ ((new Date()).getMonth()+1) +'-'+ (new Date()).getDate();
+
   //Login Actions//
 
   $('#registerForm').on('submit', function(e) {
@@ -92,21 +94,20 @@ $(document).ready(function() {
     // HTML 5 gives all element the ability to store data on them
     // need <p data-foo="hello"></p>
     // elementForP.data('foo') // return the string "hello"
-    var idClicked = buttonClicked.data('id');
-    console.log(idClicked);
+    var idClicked = buttonClicked.data('book-id');
     console.log("You clicked on id "+ idClicked);
-
     var newRequest = {
         borrow_request: {
         book_id: idClicked,
-        user_id: cUser.user.id
-        //date: Date.now
+        user_id: cUser.user.id,
+        request_date: today
       }
     };
-
     api.requestBook(cUser.user.token, newRequest, bookFuncs.newRequestCB);
-    //$(event.target).attr("class").text("btn btn-warning");
-    $('*[data-delete-id=idClicked]').html("requested");
+
+    if (cUser.loggedIn) {
+      $(event.target).removeClass('btn btn-success').addClass('btn btn-warning').html("requested");
+    };
     event.preventDefault();
   });
 
