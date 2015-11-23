@@ -231,7 +231,7 @@
                 <script id="request-for-me-index" type="text/x-handlebars-template">
                   {{#each books}}
                   <tr>
-                    <td>{{#ifOnLoan response value=false}}<button type="button" class="btn btn-warning">Respond</button>
+                    <td>{{#ifOnLoan response value=false}}<button data-request-id={{id}} type="button" class="btn btn-warning">Respond</button>
                     {{else}}<div style="color:green">On Loan</div>
                     {{/ifOnLoan}}
                     </td>

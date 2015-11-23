@@ -95,7 +95,7 @@ var api = {
     }, callback);
   },
 
-  requestBook: function(token, newRequest, callback) {
+  requestBook: function(token, params, callback) {
     this.ajax({
       method: 'POST',
       url: this.url + '/borrow_requests',
@@ -103,7 +103,20 @@ var api = {
         Authorization: 'Token token=' + token
       },
       contentType: 'application/json',
-      data: JSON.stringify(newRequest),
+      data: JSON.stringify(params),
+      dataType: 'json'
+    }, callback);
+  },
+
+  updateReq: function(token, id, params, callback){
+    this.ajax({
+      method: 'PATCH',
+      url: this.url + '/borrow_requests/' + id,
+      headers: {
+        Authorization: 'Token token=' + token
+      },
+      contentType: 'application/json',
+      data: JSON.stringify(params),
       dataType: 'json'
     }, callback);
   }

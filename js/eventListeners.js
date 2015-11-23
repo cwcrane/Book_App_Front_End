@@ -23,7 +23,18 @@ $(document).ready(function() {
     return wrapper;
   };
 
+  //date variables//
+  Date.prototype.addDays = function(days) {
+    var dat = new Date(this.valueOf());
+    dat.setDate(dat.getDate() + days);
+    return dat;
+  };
+
   var today = (new Date()).getFullYear() +'-'+ ((new Date()).getMonth()+1) +'-'+ (new Date()).getDate();
+
+  var dueBack = function(days){
+    return (new Date().addDays(days)).getFullYear() +'-'+ ((new Date().addDays(days)).getMonth()+1) +'-'+ (new Date().addDays(days)).getDate();
+  };
 
   //Login Actions//
 
@@ -89,26 +100,39 @@ $(document).ready(function() {
 
   //Requests//
 
-  $("#allBooks").on('click', function(event){
-    var buttonClicked = $(event.target)
+  $("#allBooks").on('click', function(e){
+    var btnClicked = $(e.target)
     // HTML 5 gives all element the ability to store data on them
     // need <p data-foo="hello"></p>
     // elementForP.data('foo') // return the string "hello"
-    var idClicked = buttonClicked.data('book-id');
-    console.log("You clicked on id "+ idClicked);
-    var newRequest = {
+    var id = btnClicked.data('book-id');
+    console.log("You clicked on id "+ id);
+    var params = {
         borrow_request: {
-        book_id: idClicked,
+        book_id: id,
         user_id: cUser.user.id,
         request_date: today
       }
     };
-    api.requestBook(cUser.user.token, newRequest, bookFuncs.newRequestCB);
+    api.requestBook(cUser.user.token, params, bookFuncs.newRequestCB);
+    ux.btnGreenToYellow(btnClicked, 'requested');
+    e.preventDefault();
+  });
 
-    if (cUser.loggedIn) {
-      $(event.target).removeClass('btn btn-success').addClass('btn btn-warning').html("requested");
+  $("#request-for-me").on('click', function(e){
+    var btnClicked = $(e.target);
+    var id = btnClicked.data('request-id');
+    console.log("You clicked on borrow_request "+ id);
+    var params = {
+        borrow_request: {
+        response: true,
+        response_date: today,
+        due_back: dueBack(45)
+      }
     };
-    event.preventDefault();
+    api.updateReq(cUser.user.token, id, params, bookFuncs.newRequestCB);
+    ux.btnYellowToGreen(btnClicked);
+    e.preventDefault();
   });
 
 });

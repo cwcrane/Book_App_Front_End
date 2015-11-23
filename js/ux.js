@@ -53,6 +53,20 @@ var ux = {
     $('#start-hide2').show();
     $('#start-hide3').hide();
     $('#my-Books-View').show();
+  },
+
+  btnGreenToYellow: function(button, newHTML){
+    if (cUser.loggedIn) {
+      $(button).removeClass('btn btn-success').addClass('btn btn-warning').html(newHTML);
+    };
+  },
+
+  btnYellowToGreen: function(button){
+    if (cUser.loggedIn) {
+      $(button).parent().append('On Loan').css({ "color": "green"});
+      $(button).remove();
+
+    };
   }
 
 };

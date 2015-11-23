@@ -72,7 +72,8 @@ var bookFuncs = {
     if (error) {
       console.log(error);
     }else {
-      console.log('REQUESTME:' + data.books);
+      console.log('requests for my books:')
+      console.log(data.books);
       var rowHTML = bookFuncs.requestForMeTemplate({books: data.books});
       $("#request-for-me").html(rowHTML);
     }
