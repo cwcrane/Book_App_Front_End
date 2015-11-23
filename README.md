@@ -56,4 +56,4 @@ The database has several relational tables. Here are the relationships:
 ###Next Steps:
 
   * Still need to build a way for users to edit profiles.
-  * give users the ability to rate books, search for their friends, andmake a top books list.
+  * give users the ability to rate books, search for their friends, and make a top books list.

@@ -1,8 +1,8 @@
 'use strict';
 
 var api = {
-  url: 'http://localhost:3000',
-  //url: 'https://shrouded-sands-7890.herokuapp.com',
+  //url: 'http://localhost:3000',
+  url: 'https://shrouded-sands-7890.herokuapp.com',
 
   ajax: function(config, cb) {
     $.ajax(config).done(function(data, textStatus, jqxhr) {
