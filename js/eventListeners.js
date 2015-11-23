@@ -84,6 +84,17 @@ $(document).ready(function() {
     e.preventDefault();
   });
 
+  //Delete Book//
+
+  $("#myBooksTable").on('click', function(e){
+    var btnClicked = $(e.target);
+    var id = btnClicked.data('delete-id');
+    console.log("You clicked on boook "+ id);
+    api.deleteBook(cUser.user.token, id, bookFuncs.newRequestCB);
+    $(btnClicked).parent().parent().remove();
+    e.preventDefault();
+  });
+
   //Search//
 
   $("#main-search-by-title").on('submit', function(e){

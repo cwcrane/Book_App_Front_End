@@ -82,9 +82,6 @@ var bookFuncs = {
   newRequestCB: function(error, data){
     if (error) {
       console.log("error" + error);
-      // if (!cUser.loggedIn) {
-      //   $("#Add-My-Book-Message").html("Please log in to make a book list and add books");
-      // }
     }else {
       console.log("success" + data);
     }

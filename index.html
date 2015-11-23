@@ -151,6 +151,7 @@
 
               <thead>
                 <tr>
+                  <th>Delete</th>
                   <th>Status</th>
                   <th>Title</th>
                   <th>Author</th>
@@ -163,11 +164,12 @@
                 <script id="my-books" type="text/x-handlebars-template">
                   {{#each books}}
                 <tr>
+                  <td><button data-delete-id={{id}} type="button" class="btn btn-danger">Delete</button></td>
                   <td>{{status}}</td>
                   <td>{{title}}</td>
                   <td>{{author}}</td>
                   <td>{{isbn}}</td>
-                  <td>Rating</td>
+                  <td>{{average_rating}}</td>
                 </tr>
                 {{/each}}
                 </script>

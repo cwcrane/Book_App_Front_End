@@ -119,6 +119,18 @@ var api = {
       data: JSON.stringify(params),
       dataType: 'json'
     }, callback);
+  },
+
+  deleteBook: function(token, id, callback) {
+    this.ajax({
+      method: 'DELETE',
+      url: this.url + '/books/' + id,
+      headers: {
+        Authorization: 'Token token=' + token
+      },
+      contentType: 'application/json',
+      dataType: 'json'
+    }, callback);
   }
 
 //need comma in between
