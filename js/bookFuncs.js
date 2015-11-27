@@ -85,6 +85,20 @@ var bookFuncs = {
     }else {
       console.log("success" + data);
     }
+  },
+
+  myProfileCB: function(error, data){
+    if (error) {
+      console.log("My profile error:" + error);
+    }else {
+      console.log(data);
+      $('#myProfile-name').html(data.first_name + ' ' + data.last_name);
+      $('#myProfile-street').html(data.address_street);
+      $('#myProfile-city').html(data.city);
+      $('#myProfile-state').html(data.state);
+      $('#myProfile-zip').html(data.zip);
+      $('#myProfile-phone').html(data.phone);
+    }
   }
 
 };

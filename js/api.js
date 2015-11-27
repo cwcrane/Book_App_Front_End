@@ -1,8 +1,8 @@
 'use strict';
 
 var api = {
-  //url: 'http://localhost:3000',
-  url: 'https://glacial-journey-5388.herokuapp.com',
+  url: 'http://localhost:3000',
+  //url: 'https://glacial-journey-5388.herokuapp.com',
 
   ajax: function(config, cb) {
     $.ajax(config).done(function(data, textStatus, jqxhr) {
@@ -130,6 +130,13 @@ var api = {
       },
       contentType: 'application/json',
       dataType: 'json'
+    }, callback);
+  },
+
+  myProfile: function(id, callback) {
+    this.ajax({
+      method: 'GET',
+      url: this.url + '/profiles/' + id,
     }, callback);
   }
 

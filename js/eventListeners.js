@@ -61,6 +61,10 @@ $(document).ready(function() {
 
   //Navbar Actions//
 
+  $("#navbar-book-swap").on('click', function(){
+    ux.uxState();
+  });
+
   $("#navbar-My-Books").on('click', function(){
     ux.myBooksView();
     api.myBooks(cUser.user.token, bookFuncs.myBooksCB);
@@ -73,7 +77,8 @@ $(document).ready(function() {
   });
 
   $("#navbar-Profile").on('click', function(){
-
+    ux.profileView();
+    api.myProfile(cUser.user.id, bookFuncs.myProfileCB);
   });
 
   //My Books//

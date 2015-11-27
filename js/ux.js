@@ -14,6 +14,7 @@ var ux = {
     $('#start-hide3').hide();
     $('#my-Books-View').hide();
     $('#login-overlay').fadeIn(100).show();
+    $('#start-hide4').hide();
   },
 
   showTopNavBar: function() {
@@ -27,6 +28,7 @@ var ux = {
     $('#start-hide2').fadeIn(700).hide();
     $('#start-hide3').fadeIn(700).show();
     $('#my-Books-View').hide();
+    $('#start-hide4').hide();
   },
 
   skipLoginView: function(){
@@ -36,6 +38,7 @@ var ux = {
     $('#start-hide2').fadeIn(700).hide();
     $('#start-hide3').fadeIn(700).show();
     $('#my-Books-View').hide();
+    $('#start-hide4').hide();
   },
 
   uxState: function (){
@@ -53,6 +56,17 @@ var ux = {
     $('#start-hide2').show();
     $('#start-hide3').hide();
     $('#my-Books-View').show();
+    $('#start-hide4').hide();
+  },
+
+  profileView: function(){
+    $('#login-overlay').hide();
+    $('#top-nav-bar').show();
+    ux.showTopNavBar();
+    $('#start-hide2').hide();
+    $('#start-hide3').hide();
+    $('#my-Books-View').hide();
+    $('#start-hide4').show();
   },
 
   btnGreenToYellow: function(button, newHTML){
