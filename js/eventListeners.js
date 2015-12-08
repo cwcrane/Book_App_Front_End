@@ -67,6 +67,7 @@ $(document).ready(function() {
 
   $("#navbar-Map").on('click', function(){
     ux.mapView();
+    api.allProfiles(mapCBs.all);
   });
 
   $("#navbar-Search").on('click', function(){

@@ -138,6 +138,13 @@ var api = {
       method: 'GET',
       url: this.url + '/profiles/' + id,
     }, callback);
+  },
+
+  allProfiles: function(callback) {
+    this.ajax({
+      method: 'GET',
+      url: this.url + '/profiles',
+    }, callback);
   }
 
 //need comma in between

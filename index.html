@@ -370,14 +370,7 @@
     </div>
 
     <!-- Invoking Mapbox API -->
-    <script>
-      'use strict';
-      var L;
-      L.mapbox.accessToken = 'pk.eyJ1IjoiY3djcmFuZSIsImEiOiJjaWh2Mm40azkwMXg1dWhrbzF3Ym0zeDViIn0.FL1_nzSzdDNAfsZ4J3qKrA';
-      var map = L.mapbox.map('map', 'mapbox.streets', { zoomControl: false })
-          .setView([42.36, -71.08], 13);
-      new L.Control.Zoom({ position: 'bottomright' }).addTo(map);
-    </script>
+    <script src="js/map.js"></script>
 
 
   </body>
