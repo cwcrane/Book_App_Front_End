@@ -15,6 +15,7 @@ var ux = {
     $('#my-Books-View').hide();
     $('#login-overlay').fadeIn(100).show();
     $('#start-hide4').hide();
+    $('#mapView').hide();
   },
 
   showTopNavBar: function() {
@@ -29,6 +30,7 @@ var ux = {
     $('#start-hide3').fadeIn(700).show();
     $('#my-Books-View').hide();
     $('#start-hide4').hide();
+    $('#mapView').hide();
   },
 
   skipLoginView: function(){
@@ -39,6 +41,7 @@ var ux = {
     $('#start-hide3').fadeIn(700).show();
     $('#my-Books-View').hide();
     $('#start-hide4').hide();
+    $('#mapView').hide();
   },
 
   uxState: function (){
@@ -49,6 +52,17 @@ var ux = {
     }else ux.beforeLoginView();
   },
 
+  mapView: function(){
+    $('#login-overlay').hide();
+    $('#top-nav-bar').show();
+    ux.showTopNavBar();
+    $('#start-hide2').hide();
+    $('#start-hide3').hide();
+    $('#my-Books-View').hide();
+    $('#start-hide4').hide();
+    $('#mapView').show();
+  },
+
   myBooksView: function(){
     $('#login-overlay').hide();
     $('#top-nav-bar').show();
@@ -57,6 +71,7 @@ var ux = {
     $('#start-hide3').hide();
     $('#my-Books-View').show();
     $('#start-hide4').hide();
+    $('#mapView').hide();
   },
 
   profileView: function(){
@@ -67,6 +82,7 @@ var ux = {
     $('#start-hide3').hide();
     $('#my-Books-View').hide();
     $('#start-hide4').show();
+    $('#mapView').hide();
   },
 
   btnGreenToYellow: function(button, newHTML){

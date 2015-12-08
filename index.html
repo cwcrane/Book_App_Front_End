@@ -9,6 +9,7 @@
     <meta name="author" content="">
     <!--<link rel="icon" href="../../favicon.ico">-->
 
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <title>Book Swap</title>
 
     <link href="styles/bootstrap.min.css" rel="stylesheet">
@@ -22,6 +23,9 @@
     <script src="js/bookFuncs.js" type="application/javascript" charset="utf-8" async defer></script>
     <script src="js/login.js" type="application/javascript" charset="utf-8" async defer></script>
     <script src="js/eventListeners.js" type="application/javascript" charset="utf-8" async defer></script>
+    <!-- Mapbox Scripts and Styles -->
+    <script src='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.js'></script>
+    <link href='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.css' rel='stylesheet' />
 
 
   </head>
@@ -109,6 +113,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
+            <li><a href="#" id="navbar-Map">Map</a></li>
             <li><a href="#" id="navbar-Search">Search</a></li>
             <li><a href="#" id="navbar-My-Books">My Books</a></li>
             <li><a href="#" id="navbar-Profile">Profile</a></li>
@@ -356,6 +361,24 @@
         </table>
       </div>
     </div>
+
+    <div id="mapView">
+        <div id='map'>Map</div>
+        <style>
+          #map { position:absolute; top:0; bottom:0; width:100%; }
+        </style>
+    </div>
+
+    <!-- Invoking Mapbox API -->
+    <script>
+      'use strict';
+      var L;
+      L.mapbox.accessToken = 'pk.eyJ1IjoiY3djcmFuZSIsImEiOiJjaWh2Mm40azkwMXg1dWhrbzF3Ym0zeDViIn0.FL1_nzSzdDNAfsZ4J3qKrA';
+      var map = L.mapbox.map('map', 'mapbox.streets', { zoomControl: false })
+          .setView([42.36, -71.08], 13);
+      new L.Control.Zoom({ position: 'bottomright' }).addTo(map);
+    </script>
+
 
   </body>
 </html>
