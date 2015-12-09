@@ -119,6 +119,21 @@ $(document).ready(function() {
     e.preventDefault();
   });
 
+  //Map Search//
+
+  $("#map-search-box").on('submit', function(e){
+    var input = $(this).find("input").val();
+    api.searchBook(input, mapCBs.search);
+    e.preventDefault();
+  });
+
+  $("#clear-map-search").on('click', function(e){
+    api.allProfiles(mapCBs.all);
+    $(".form-control").val('');
+    e.preventDefault();
+  });
+
+
   //Requests//
 
   $("#allBooks").on('click', function(e){

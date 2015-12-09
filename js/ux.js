@@ -16,6 +16,7 @@ var ux = {
     $('#login-overlay').fadeIn(100).show();
     $('#start-hide4').hide();
     $('#mapView').hide();
+    $('#mapSearch').hide();
   },
 
   showTopNavBar: function() {
@@ -31,6 +32,7 @@ var ux = {
     $('#my-Books-View').hide();
     $('#start-hide4').hide();
     $('#mapView').hide();
+    $('#mapSearch').hide();
   },
 
   skipLoginView: function(){
@@ -42,6 +44,7 @@ var ux = {
     $('#my-Books-View').hide();
     $('#start-hide4').hide();
     $('#mapView').hide();
+    $('#mapSearch').hide();
   },
 
   uxState: function (){
@@ -61,6 +64,7 @@ var ux = {
     $('#my-Books-View').hide();
     $('#start-hide4').hide();
     $('#mapView').show();
+    $('#mapSearch').show();
   },
 
   myBooksView: function(){
@@ -72,6 +76,7 @@ var ux = {
     $('#my-Books-View').show();
     $('#start-hide4').hide();
     $('#mapView').hide();
+    $('#mapSearch').hide();
   },
 
   profileView: function(){

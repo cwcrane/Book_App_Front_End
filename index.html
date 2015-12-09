@@ -369,6 +369,22 @@
         </style>
     </div>
 
+    <div id="mapSearch" class="mapSearch">
+      <form id="map-search-box" class="form-inline">
+        <div class="form-group">
+          <div class="input-group-lg" id="adv-search">
+            <input type="text" class="form-control" placeholder="Search for books" />
+            <button type="submit" class="btn btn-primary">search</button>
+            <button id="clear-map-search" type="reset" class="btn btn-warning">Clear</button>
+          </div>
+        </div>
+      </form>
+
+      <ul id="map-search-results"></ul>
+    </div>
+
+
+
     <!-- Invoking Mapbox API -->
     <script src="js/map.js"></script>
 
